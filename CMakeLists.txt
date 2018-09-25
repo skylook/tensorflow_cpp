@@ -27,8 +27,16 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/third_party/eigen3
 )
 
+# Simple Net
 add_executable(load_simple_net simple/load_simple_net.cpp)
 target_link_libraries(load_simple_net
+        ${TENSORFLOW_LIBS}
+        ${OpenCV_LIBS}
+        )
+
+# Tfeat
+add_executable(load_tfeat tfeat/load_tfeat.cpp)
+target_link_libraries(load_tfeat
         ${TENSORFLOW_LIBS}
         ${OpenCV_LIBS}
         )
