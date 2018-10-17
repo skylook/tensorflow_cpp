@@ -25,6 +25,9 @@ from keras.utils import plot_model
 # Dataset
 import utils.mnist_reader as mnist_reader
 
+# Model
+from model import create_model
+
 print(tf.__version__)
 print(keras.__version__)
 
@@ -46,18 +49,8 @@ test_images /= 255
 train_labels = tf.keras.utils.to_categorical(train_labels, 10)
 test_labels = tf.keras.utils.to_categorical(test_labels, 10)
 
-model = tf.keras.Sequential()
-# Must define the input shape in the first layer of the neural network
-model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=2, padding='same', activation='relu', input_shape=(28, 28, 1), name='input_image'))
-model.add(tf.keras.layers.MaxPooling2D(pool_size=2))
-# model.add(tf.keras.layers.Dropout(0.3))
-model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=2, padding='same', activation='relu'))
-model.add(tf.keras.layers.MaxPooling2D(pool_size=2))
-# model.add(tf.keras.layers.Dropout(0.3))
-model.add(tf.keras.layers.Flatten())
-model.add(tf.keras.layers.Dense(256, activation='relu'))
-model.add(tf.keras.layers.Dropout(0.5))
-model.add(tf.keras.layers.Dense(10, activation='softmax', name='output_class'))
+# Create CNN Model from model.py
+model = create_model()
 
 # Take a look at the model summary
 model.summary()
