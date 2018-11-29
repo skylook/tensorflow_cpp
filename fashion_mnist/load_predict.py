@@ -5,6 +5,11 @@ import numpy as np
 
 from tensorflow.python.platform import gfile
 
+# Fix for ros kinetic users
+import sys
+print(sys.path)
+sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+
 # OpenCV
 import cv2
 

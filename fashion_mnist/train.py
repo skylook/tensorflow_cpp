@@ -4,12 +4,12 @@ import gzip
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten
-from keras.layers import Conv2D, MaxPooling2D
-from keras.optimizers import SGD
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Flatten
+from tensorflow.keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.optimizers import SGD
 
-from keras import backend as K
+from tensorflow.keras import backend as K
 
 # Use this only for export of the model.
 K.set_learning_phase(0)
@@ -20,7 +20,7 @@ sess = K.get_session()
 import numpy as np
 
 # Plot model
-from keras.utils import plot_model
+from tensorflow.keras.utils import plot_model
 
 # Dataset
 import utils.mnist_reader as mnist_reader
@@ -56,7 +56,7 @@ model = create_model()
 model.summary()
 
 # Virtualize model
-from keras.utils import plot_model
+from tensorflow.keras.utils import plot_model
 plot_model(model, to_file='model.png')
 
 # Include the epoch in the file name. (uses `str.format`)
