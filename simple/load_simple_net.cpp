@@ -84,7 +84,7 @@ int main(int argc, char* argv[]) {
 
     // Print the results
     std::cout << outputs[0].DebugString() << std::endl; // Tensor<type: float shape: [] values: 30>
-    std::cout << "output value: " << output_c() << std::endl; // 30
+    std::cout << "Output value: " << output_c() << std::endl; // 30
 
     // Free any resources used by the session
     session->Close();
