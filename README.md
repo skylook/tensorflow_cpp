@@ -12,24 +12,28 @@ This project includes source code for my blog:
 # Build
 1. Prepare
 
- ```shell
+```shell
 mkdir build
-cd build```
+cd build
+```
 
 2. CMake
 
 For C++ API, run :
  ```shell
-cmake .. -DUSE_TENSORFLOW_C=ON```
+cmake .. -DUSE_TENSORFLOW_C=ON
+```
 
 For C++ API, run t:
  ```shell
-cmake .. -DUSE_TENSORFLOW_CPP=ON```
+cmake .. -DUSE_TENSORFLOW_CPP=ON
+```
 
 3. Build
 
  ```shell
-make```
+make
+```
 
 # Run
 
