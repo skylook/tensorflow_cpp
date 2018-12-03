@@ -39,7 +39,7 @@ if(USE_TENSORFLOW_CPP)
             )
 
     # CNN Net C++
-    add_executable(load_predict_cnn fashion_mnist/load_predict.cpp)
+    add_executable(load_predict_cnn fashion_mnist/load_predict_cnn.cpp)
     target_link_libraries(load_predict_cnn
             ${TENSORFLOW_LIBS}
             ${OpenCV_LIBS}
@@ -63,7 +63,7 @@ if(USE_TENSORFLOW_C)
             )
 
     # CNN Net C
-    add_executable(load_predict_cnn_c_api fashion_mnist/load_predict_c_api.cc utils/tf_utils.cpp)
+    add_executable(load_predict_cnn_c_api fashion_mnist/load_predict_cnn_c_api.cc utils/tf_utils.cpp)
     target_link_libraries(load_predict_cnn_c_api
             ${TENSORFLOW_LIBS}
             ${OpenCV_LIBS}
