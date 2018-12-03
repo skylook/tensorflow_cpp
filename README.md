@@ -11,16 +11,22 @@ For C API
  
 # Build
 1. Prepare
-`mkdir build`
 
-1. CMake
-For C++ API, run the following commands:
+`mkdir build
+cd build`
+
+2. CMake
+
+For C++ API, run :
 `cmake .. -DUSE_TENSORFLOW_C=ON`
 
-For C++ API, run the following commands:
+For C++ API, run t:
 `cmake .. -DUSE_TENSORFLOW_CPP=ON`
 
-2. Build
+3. Build
+
 `make`
+
+# Run
 
 My Blog: [www.liuxiao.org](http://www.liuxiao.org)
