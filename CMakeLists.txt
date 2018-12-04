@@ -55,6 +55,11 @@ if(USE_TENSORFLOW_C)
     set(TENSORFLOW_LIBS
             ${PROJECT_SOURCE_DIR}/third_party/libtensorflow_cpu/lib/libtensorflow.so)
 
+    include_directories(
+            ${TENSORFLOW_INCLUDES}
+            ${PROJECT_SOURCE_DIR}/third_party/eigen3
+    )
+
     # Simple Net C
     add_executable(load_simple_net_c_api simple/load_simple_net_c_api.cc utils/tf_utils.cpp)
     target_link_libraries(load_simple_net_c_api

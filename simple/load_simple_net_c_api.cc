@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+    // Input Tensor Create
     const std::vector<std::int64_t> input_a_dims = {1, 1};
     const std::vector<float> input_a_vals = {2.0};
     const std::vector<std::int64_t> input_b_dims = {1, 1};
@@ -30,7 +31,9 @@ int main(int argc, char* argv[])
     const std::vector<TF_Tensor*> input_tensors = {tf_utils::CreateTensor(TF_FLOAT, input_a_dims, input_a_vals),
                                                    tf_utils::CreateTensor(TF_FLOAT, input_b_dims, input_b_vals)};
 
+    // Output Tensor Create
     const std::vector<TF_Output> output_ops = {{TF_GraphOperationByName(graph, "c"), 0}};
+
     std::vector<TF_Tensor*> output_tensors = {nullptr};
 
     const bool success = tf_utils::RunSession(graph,
@@ -48,6 +51,7 @@ int main(int argc, char* argv[])
 
     tf_utils::DeleteTensors(input_tensors);
     tf_utils::DeleteTensors(output_tensors);
+
     TF_DeleteGraph(graph);
 
     return 0;
