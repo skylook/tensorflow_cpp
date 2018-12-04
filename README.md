@@ -7,17 +7,17 @@ This project includes source code for my blog:
 # Dependancies
 1. For C++ API
 
-2. For C API, download sdk from [https://www.tensorflow.org/install/lang_c](https://www.tensorflow.org/install/lang_c) and put it into third_party folder.
+2. For C API, download sdk from [https://www.tensorflow.org/install/lang_c](https://www.tensorflow.org/install/lang_c) and put it into third_party/tensorflow_cpu (default) or third_party/tensorflow_gpu folder.
  
 # Build
-1. Prepare
+## Prepare
 
 ```shell
 mkdir build
 cd build
 ```
 
-2. CMake
+## CMake
 
 For C++ API, run :
  ```shell
@@ -29,12 +29,28 @@ For C++ API, run t:
 cmake .. -DUSE_TENSORFLOW_CPP=ON
 ```
 
-3. Build
+## Build
 
  ```shell
 make
 ```
 
 # Run
+## For C++ Example (Simple Net)
+```shell
+
+```
+## For C++ Example (CNN Net)
+```shell
+
+```
+## For C Example (Simple Net)
+```shell
+./load_simple_net_c_api ../simple/model/simple.pb
+```
+## For C Example (CNN Net)
+```shell
+./load_predict_cnn_c_api ../fashion_mnist/models/fashion_mnist.h5.pb ../fashion_mnist/fashion_0.png
+```
 
 My Blog: [www.liuxiao.org](http://www.liuxiao.org)
