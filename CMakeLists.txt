@@ -61,14 +61,14 @@ if(USE_TENSORFLOW_C)
     )
 
     # Simple Net C
-    add_executable(load_simple_net_c_api simple/load_simple_net_c_api.cc utils/tf_utils.cpp)
+    add_executable(load_simple_net_c_api simple/load_simple_net_c_api.cc utils/TFUtils.cpp)
     target_link_libraries(load_simple_net_c_api
             ${TENSORFLOW_LIBS}
             ${OpenCV_LIBS}
             )
 
     # CNN Net C
-    add_executable(load_predict_cnn_c_api fashion_mnist/load_predict_cnn_c_api.cc utils/tf_utils.cpp)
+    add_executable(load_predict_cnn_c_api fashion_mnist/load_predict_cnn_c_api.cc utils/TFUtils.cpp)
     target_link_libraries(load_predict_cnn_c_api
             ${TENSORFLOW_LIBS}
             ${OpenCV_LIBS}

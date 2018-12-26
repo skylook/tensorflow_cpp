@@ -1,4 +1,4 @@
-#include "../utils/tf_utils.hpp"
+#include "../utils/TFUtils.hpp"
 #include "utils/mat2tensor_c_cpi.h"
 
 #include <iostream>
@@ -24,9 +24,12 @@ int main(int argc, char* argv[])
     // Load graph
     std::string graph_path = argv[1];
 
-    TF_Graph* graph = tf_utils::LoadGraphDef(graph_path.c_str());
-    if (graph == nullptr) {
-        std::cout << "Can't load graph" << std::endl;
+    // TFUtils init
+    TFUtils TFU;
+    TFUtils::STATUS status = TFU.LoadModel(graph_path);
+
+    if (status != TFUtils::SUCCESS) {
+        std::cerr << "Can't load graph" << std::endl;
         return 1;
     }
 
@@ -41,19 +44,18 @@ int main(int argc, char* argv[])
     // Input Tensor/Ops Create
     const std::vector<TF_Tensor*> input_tensors = {input_image};
 
-    const std::vector<TF_Output> input_ops = {{TF_GraphOperationByName(graph, "input_image_input"), 0}};
+    const std::vector<TF_Output> input_ops = {TFU.GetOperationByName("input_image_input", 0)};
 
     // Output Tensor/Ops Create
-    const std::vector<TF_Output> output_ops = {{TF_GraphOperationByName(graph, "output_class/Softmax"), 0}};
+    const std::vector<TF_Output> output_ops = {TFU.GetOperationByName("output_class/Softmax", 0)};
 
     std::vector<TF_Tensor*> output_tensors = {nullptr};
 
-    const bool success = tf_utils::RunSession(graph,
-                                              input_ops, input_tensors,
-                                              output_ops, output_tensors);
+    status = TFU.RunSession(input_ops, input_tensors,
+                            output_ops, output_tensors);
 
-    if (success) {
-        const std::vector<std::vector<float>> data = tf_utils::TensorsData<float>(output_tensors);
+    if (status == TFUtils::SUCCESS) {
+        const std::vector<std::vector<float>> data = TFUtils::GetTensorsData<float>(output_tensors);
         const std::vector<float> result = data[0];
 
         int pred_index = ArgMax(result);
@@ -66,10 +68,8 @@ int main(int argc, char* argv[])
         return 2;
     }
 
-    tf_utils::DeleteTensors(input_tensors);
-    tf_utils::DeleteTensors(output_tensors);
-
-    TF_DeleteGraph(graph);
+    TFUtils::DeleteTensors(input_tensors);
+    TFUtils::DeleteTensors(output_tensors);
 
     return 0;
 }

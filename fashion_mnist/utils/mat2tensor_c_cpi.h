@@ -21,7 +21,7 @@ TF_Tensor* Mat2Tensor(cv::Mat &img, float normal = 1/255.0) {
     img.convertTo(fake_mat, CV_32FC(img.channels()));
     fake_mat *= normal;
 
-    TF_Tensor* image_input = tf_utils::CreateTensor(TF_FLOAT,
+    TF_Tensor* image_input = TFUtils::CreateTensor(TF_FLOAT,
                         input_dims.data(), input_dims.size(),
                         fake_mat.data, (fake_mat.size().height * fake_mat.size().width * fake_mat.channels() * sizeof(float)));
 
