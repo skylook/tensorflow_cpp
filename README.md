@@ -7,9 +7,9 @@ This project includes source code for my blog:
 2. [Tensorflow C++: from training to serving](http://www.liuxiao.org/2018/08/ubuntu-tensorflow-c-%e4%bb%8e%e8%ae%ad%e7%bb%83%e5%88%b0%e9%a2%84%e6%b5%8b1%ef%bc%9a%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba/) (In Chinese)
 
 # 1. Dependancies
-1. For C API, download sdk from [https://www.tensorflow.org/install/lang_c](https://www.tensorflow.org/install/lang_c) and put it into third_party/tensorflow_cpu (default) or third_party/tensorflow_gpu folder.
+1) For C API, download sdk from [https://www.tensorflow.org/install/lang_c](https://www.tensorflow.org/install/lang_c) and put it into third_party/tensorflow_cpu (default) or third_party/tensorflow_gpu folder.
  
-2. For C++ API, follow the steps in [Tensorflow C++: from training to serving](http://www.liuxiao.org/2018/08/ubuntu-tensorflow-c-%e4%bb%8e%e8%ae%ad%e7%bb%83%e5%88%b0%e9%a2%84%e6%b5%8b1%ef%bc%9a%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba/) (In Chinese) or [Tensorflow C++ API](https://www.tensorflow.org/guide/extend/cc) to build tensorflow on your platform.
+2) For C++ API, follow the steps in [Tensorflow C++: from training to serving](http://www.liuxiao.org/2018/08/ubuntu-tensorflow-c-%e4%bb%8e%e8%ae%ad%e7%bb%83%e5%88%b0%e9%a2%84%e6%b5%8b1%ef%bc%9a%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba/) (In Chinese) or [Tensorflow C++ API](https://www.tensorflow.org/guide/extend/cc) to build tensorflow on your platform.
 
 The C++ API is only designed to work with TensorFlow bazel build, which means you have to build tensorflow on every devices. If you need a stand-alone option, we suggest you use the C API. 
 
