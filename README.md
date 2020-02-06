@@ -6,6 +6,8 @@ This project includes source code for my blog:
 
 2. [Tensorflow C++: from training to serving](http://www.liuxiao.org/2018/08/ubuntu-tensorflow-c-%e4%bb%8e%e8%ae%ad%e7%bb%83%e5%88%b0%e9%a2%84%e6%b5%8b1%ef%bc%9a%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba/) (In Chinese)
 
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 # 1. Dependancies
 1) For C API, download sdk from [https://www.tensorflow.org/install/lang_c](https://www.tensorflow.org/install/lang_c) and put it into third_party/tensorflow_cpu (default) or third_party/tensorflow_gpu folder.
  
