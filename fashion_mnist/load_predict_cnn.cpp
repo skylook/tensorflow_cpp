@@ -42,6 +42,7 @@ int ArgMax(const tensorflow::TTypes<float, 1>::Tensor& prediction);
  * @param argv[1] graph protobuf
  *
  * @return [description]
+ **
  */
 int main(int argc, char* argv[]) {
     // Initialize a tensorflow session
@@ -50,9 +51,10 @@ int main(int argc, char* argv[]) {
     if (!status.ok()) {
         std::cerr << status.ToString() << std::endl;
         return 1;
-    } else {
+    } 
+    else {
         std::cout << "Session created successfully" << std::endl;
-    }
+         }
 
     if (argc != 3)
     {
@@ -133,5 +135,5 @@ int ArgMax(const tensorflow::TTypes<float, 1>::Tensor& prediction)
         }
         std::cout << "value[" << i << "] = " << value << std::endl;
     }
-    return max_index;
+    return max_index ;
 }
